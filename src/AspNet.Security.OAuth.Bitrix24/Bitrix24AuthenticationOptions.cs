@@ -42,6 +42,7 @@ namespace AspNet.Security.OAuth.Bitrix24
         {
             base.Validate();
 
+#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one
             if (!Uri.TryCreate(AuthorizationEndpoint, UriKind.Absolute, out var _))
             {
                 throw new ArgumentException(
@@ -62,6 +63,7 @@ namespace AspNet.Security.OAuth.Bitrix24
                     $"The '{nameof(UserInformationEndpoint)}' option must be set to a valid URI.",
                     nameof(UserInformationEndpoint));
             }
+#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one
         }
     }
 }
